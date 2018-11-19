@@ -67,10 +67,13 @@ function updateProgress() {
   progressBar[3].style.width = `${workDayProgress}%`
 }
 
-updateProgress();
-setInterval(updateProgress, 1);
-
 function toFixed(number) {
   let num = number.toString().substring(0, number.toString().indexOf('.') + 3);
   return num.length !== 5 ? number.toFixed(2) : num;
+}
+
+window.onload = function() {
+  document.querySelector('.lds-ring').style.display = 'none';
+  document.querySelector('.progressContainer').style.display = 'block';
+  setInterval(updateProgress, 1)
 }
