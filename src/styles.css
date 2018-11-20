@@ -2,9 +2,7 @@ html, body {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
-  background-image: url('../images/background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  overflow: hidden;
   background-color: rgb(237, 237, 237);
 }
 
@@ -17,7 +15,7 @@ html, body {
 	position: absolute
 }
 
-.lds-ring div { border: 6px solid black }
+.lds-ring div { border: 6px solid darkcyan }
 .lds-ring div {
   box-sizing: border-box;
   display: block;
@@ -26,7 +24,7 @@ html, body {
   height: 100%;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: black transparent transparent transparent
+  border-color: darkcyan transparent transparent transparent
 }
 .lds-ring div:nth-child(1) { animation-delay: -0.45s }
 .lds-ring div:nth-child(2) { animation-delay: -0.3s }
@@ -45,14 +43,10 @@ h1, p, h4 { text-align: center }
   display: none;
   width: 100%;
   height: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   background-color: rgb(237, 237, 237);
-  transition: width .2s, height .2s, background-color .5s;
-  box-shadow: 0 10px 25px black;
+  transition: all .25s;
   color: rgb(65, 65, 65);
-  border-radius: 2px
+  overflow-y: auto
 }
 
 .progressContainer h1 {
@@ -82,7 +76,20 @@ h1, p, h4 { text-align: center }
   transition: all .4s
 }
 
-.progressContainer h3 { cursor: context-menu }
+.frame {
+  position: relative;
+  width: 3%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, .15);
+  animation: effect 1.5s linear infinite
+}
+
+@keyframes effect {
+  from { left: 0 }
+  to { left: calc(97%) }
+}
+
+.progressContainer h3 { cursor: help }
 
 p { margin-top: 43px }
 
@@ -102,11 +109,22 @@ p { margin-top: 43px }
   }
 }
 @media (min-width: 400px) {
+  body {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat
+  }
   .progressContainer {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 25px black;
+    border-radius: 2px;
     width: 300px;
     height: 500px;
     background-color: rgba(237, 237, 237, .85);
   }
+  .progressBar { background-color: darkgray }
 }
 
 @media (min-width: 500px) {
