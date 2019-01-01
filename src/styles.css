@@ -3,10 +3,11 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   overflow: hidden;
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(237, 237, 237)
 }
 
 .lds-ring {
+  z-index: 1;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -30,10 +31,7 @@ html, body {
 .lds-ring div:nth-child(2) { animation-delay: -0.3s }
 .lds-ring div:nth-child(3) { animation-delay: -0.15s }
 
-@keyframes lds-ring {
-  from { transform: rotate(0deg) }
-  to { transform: rotate(360deg) }
-}
+@keyframes lds-ring { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
 
 html, body, h1, h2, h3, h4, p { margin: 0 }
 h1, h2, .progress, .progressContainer { position: relative }
@@ -42,7 +40,7 @@ h1, p, h4 { text-align: center }
 .progressContainer {
   display: none;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgb(237, 237, 237);
   transition: all .25s;
   color: rgb(65, 65, 65);
@@ -50,6 +48,7 @@ h1, p, h4 { text-align: center }
 }
 
 .progressContainer h1 {
+  font-size: 30px;
   top: 10px;
   text-shadow: 0 0 2px black;
   color: rgb(39, 39, 39)
@@ -84,28 +83,20 @@ h1, p, h4 { text-align: center }
   animation: effect 1.5s linear infinite
 }
 
-@keyframes effect {
-  from { left: 0 }
-  to { left: calc(97%) }
-}
+.update { display: none }
+
+@keyframes effect { 0% { left: 0 } to { left: calc(97%) } }
 
 .progressContainer h3 { cursor: help }
 
 p { margin-top: 43px }
-
-.update {
-  position: absolute;
-  width: 100%;
-  min-height: 0;
-  bottom: 0
-}
 
 @media (min-width: 215px) {
   .progressContainer h3 {
     margin-left: 2px;
     position: absolute;
     right: 0;
-    top: 5px;
+    top: 5px
   }
 }
 @media (min-width: 400px) {
@@ -114,6 +105,7 @@ p { margin-top: 43px }
     background-size: cover;
     background-repeat: no-repeat
   }
+  p { margin-top: 60px }
   .progressContainer {
     left: 50%;
     top: 50%;
@@ -121,15 +113,44 @@ p { margin-top: 43px }
     box-shadow: 0 10px 25px black;
     border-radius: 2px;
     width: 300px;
-    height: 500px;
-    background-color: rgba(237, 237, 237, .85);
+    min-height: 0;
+    background-color: rgba(237, 237, 237, .85)
   }
   .progressBar { background-color: darkgray }
 }
 
-@media (min-width: 500px) {
-  .progressContainer {
-    width: 350px;
-    height: 500px
+@media (min-width: 500px) { .progressContainer { width: 350px } }
+
+@media (min-width: 768px) {
+  .progressContainer { min-height: 500px }
+  .update {
+    display: block;
+    position: absolute;
+    width: 100%;
+    min-height: 0;
+    bottom: 0
   }
+}
+
+@media (min-width: 1024px) {
+  .effect a {
+    text-decoration: none;
+    color: rgb(39, 39, 39)
+  }
+  .effect {
+    position: relative;
+    cursor: pointer
+  }
+  .effect:after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(39, 39, 39);
+    transition: width .5s
+  }
+  .effect:hover:after { width: 100% }
 }

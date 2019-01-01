@@ -23,6 +23,8 @@ function updateProgress() {
     return sum / yearDays * 100;
   })();
 
+  if (yearProgress === 0) alert('Happy new year!')
+
   year.textContent = `${toFixed(yearProgress)}%`;
   year.setAttribute('title', `${yearProgress}%`);
   progressBar[0].style.width = `${yearProgress}%`;
@@ -47,10 +49,18 @@ function updateProgress() {
 
   workDayProgress = (() => {
     let num = 0;
-    if (date.getHours() < 6) dayName.textContent = 'Dawn';
-    else if (date.getHours() < 12) { dayName.textContent = 'Morning'; num = 6 }
-    else if (date.getHours() < 18) { dayName.textContent = 'Evening'; num = 12 }
-    else { dayName.textContent = 'Night'; num = 18 }
+    if (date.getHours() < 6)
+      dayName.textContent = 'Dawn';
+    else if (date.getHours() < 12) {
+      dayName.textContent = 'Morning';
+      num = 6
+    } else if (date.getHours() < 18) {
+      dayName.textContent = 'Evening';
+      num = 12
+    } else {
+      dayName.textContent = 'Night';
+      num = 18
+    }
     return (date.getHours() - num + date.getMinutes() / 60 + date.getSeconds() / 3600) / 6 * 100
   })();
 
@@ -61,10 +71,10 @@ function updateProgress() {
 
 function toFixed(number) {
   let num = number.toString().substring(0, number.toString().indexOf('.') + 3);
-  return (num.length !== 5 || num.length !== 4) ? number.toFixed(2) : num;
+  return (num.length !== 5 && num.length !== 4) ? number.toFixed(2) : num;
 }
 
-window.onload = function() {
+window.onload = function () {
   document.querySelector('.lds-ring').style.display = 'none';
   document.querySelector('.progressContainer').style.display = 'block';
   setInterval(updateProgress, 1)

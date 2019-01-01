@@ -1,8 +1,9 @@
 CACHE MANIFEST
-# 0.0.3
+# 0.0.5
 
 CACHE:
-./images/background.jpg
-./images/icon.png
 ./src/scripts.js
 ./src/styles.css
+
+NETWORK:
+*
