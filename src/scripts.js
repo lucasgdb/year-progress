@@ -23,7 +23,7 @@ function updateProgress() {
     return sum / yearDays * 100;
   })();
 
-  if (yearProgress === 0) alert('Happy new year!')
+  if (yearProgress === 0) alert('Feliz ano novo!')
 
   year.textContent = `${toFixed(yearProgress)}%`;
   year.setAttribute('title', `${yearProgress}%`);
@@ -50,15 +50,15 @@ function updateProgress() {
   workDayProgress = (() => {
     let num = 0;
     if (date.getHours() < 6)
-      dayName.textContent = 'Dawn';
+      dayName.textContent = 'Madrugada';
     else if (date.getHours() < 12) {
-      dayName.textContent = 'Morning';
+      dayName.textContent = 'Manhã';
       num = 6
     } else if (date.getHours() < 18) {
-      dayName.textContent = 'Evening';
+      dayName.textContent = 'Tarde';
       num = 12
     } else {
-      dayName.textContent = 'Night';
+      dayName.textContent = 'Noite';
       num = 18
     }
     return (date.getHours() - num + date.getMinutes() / 60 + date.getSeconds() / 3600) / 6 * 100
