@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# 0.0.9
+
+CACHE:
+./src/scripts.js
+./src/styles.css
+./images/icon.png
+./images/background.jpg
