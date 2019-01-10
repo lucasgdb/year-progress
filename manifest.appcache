@@ -1,9 +1,0 @@
-CACHE MANIFEST
-# 0.0.8
-
-CACHE:
-./src/scripts.js
-./src/styles.css
-
-NETWORK:
-*

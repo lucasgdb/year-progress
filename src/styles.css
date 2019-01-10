@@ -3,7 +3,8 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   overflow: hidden;
-  background-color: rgb(237, 237, 237)
+  background-color: rgb(237, 237, 237);
+  min-width: 320px
 }
 
 .lds-ring {
@@ -87,35 +88,35 @@ h1, p, h4 { text-align: center }
 
 @keyframes effect { 0% { left: 0 } to { left: calc(97%) } }
 
-.progressContainer h3 { cursor: help }
+.progressContainer h3 {
+  margin-left: 2px;
+  position: absolute;
+  right: 0;
+  top: 5px
+}
 
 p { margin-top: 43px }
 
-@media (min-width: 215px) {
-  .progressContainer h3 {
-    margin-left: 2px;
-    position: absolute;
-    right: 0;
-    top: 5px
-  }
-}
 @media (min-width: 400px) {
   body {
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat
   }
+  
   p { margin-top: 60px }
+
   .progressContainer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 10px 25px black;
-    border-radius: 2px;
+    border-radius: 4px;
     width: 300px;
     min-height: 0;
     background-color: rgba(237, 237, 237, .85)
   }
+  
   .progressBar { background-color: darkgray }
 }
 
@@ -133,6 +134,7 @@ p { margin-top: 43px }
 }
 
 @media (min-width: 1024px) {
+  .progressContainer h3 { cursor: help }
   .effect a {
     text-decoration: none;
     color: rgb(39, 39, 39)
