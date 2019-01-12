@@ -69,17 +69,8 @@ function updateProgress() {
   progressBar[3].style.width = `${workDayProgress}%`
 }
 
-updateProgress()
-
 window.onload = function () {
   document.querySelector('.lds-ring').style.display = 'none'
   document.querySelector('.progressContainer').style.display = 'block'
-  const second = new Date().getSeconds(),
-    interval = setInterval(() => {
-      if (new Date().getSeconds() !== second) {
-        updateProgress()
-        setInterval(updateProgress, 1000)
-        clearInterval(interval)
-      }
-    }, 1)
+  setInterval(updateProgress, 1)
 }
