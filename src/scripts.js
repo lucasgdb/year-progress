@@ -25,7 +25,7 @@ function updateProgress() {
 
   if (yearProgress === 0) alert('Feliz ano novo!')
 
-  year.textContent = `${Math.floor(yearProgress)}%`
+  year.textContent = `${change(yearProgress)}%`
   year.setAttribute('title', `${yearProgress}%`)
   progressBar[0].style.width = `${yearProgress}%`
 
@@ -37,13 +37,13 @@ function updateProgress() {
     return sum / months[date.getMonth()] * 100
   })()
 
-  month.textContent = `${Math.floor(monthProgress)}%`
+  month.textContent = `${change(monthProgress)}%`
   month.setAttribute('title', `${monthProgress}%`)
   progressBar[1].style.width = `${monthProgress}%`
 
   dayProgress = ((date.getHours() + date.getMinutes() / 60 + date.getSeconds() / 3600) / 24) * 100
 
-  day.textContent = `${Math.floor(dayProgress)}%`
+  day.textContent = `${change(dayProgress)}%`
   day.setAttribute('title', `${dayProgress}%`)
   progressBar[2].style.width = `${dayProgress}%`
 
@@ -64,9 +64,13 @@ function updateProgress() {
     return (date.getHours() - num + date.getMinutes() / 60 + date.getSeconds() / 3600) / 6 * 100
   })()
 
-  workDay.textContent = `${Math.floor(workDayProgress)}%`
+  workDay.textContent = `${change(workDayProgress)}%`
   workDay.setAttribute('title', `${workDayProgress}%`)
   progressBar[3].style.width = `${workDayProgress}%`
+}
+
+function change(number = Number) {
+  return `${Math.floor(number)}.${number.toString().includes('.') ? number.toString().split('.')[1][0] : 0}`
 }
 
 window.onload = function () {
