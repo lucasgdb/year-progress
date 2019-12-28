@@ -51,7 +51,7 @@ h4 {
 }
 
 .lds-ring div {
-    border: 6px solid darkcyan
+    border: 6px solid #4e8aed
 }
 
 .lds-ring div {
@@ -62,7 +62,7 @@ h4 {
     height: 100%;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: darkcyan transparent transparent transparent
+    border-color: #4e8aed transparent transparent transparent
 }
 
 .lds-ring div:nth-child(1) {
